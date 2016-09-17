@@ -1,13 +1,13 @@
-my_array = []
+words = []
 input = nil
 
 while input != ""
   input = gets.chomp
   if input != ""
-    my_array.push(input)
+    words.push(input)
   end
 end
 
-my_array.sort.each do |word|
+words.sort.each do |word|
 	puts word
 end
