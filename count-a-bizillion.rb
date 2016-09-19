@@ -34,7 +34,7 @@ def englishNumber number
   expo  = number.to_s.length
   expo  = expo - (expo % 3)
 
-  while expo > 2
+  while expo > 1
     write = left/(10**expo)
     left  = left - write*(10**expo)
 
@@ -47,19 +47,10 @@ def englishNumber number
       end
 
     end
-    expo -= 3
-  end
-
-  expo  = 2
-  write = left/(10**expo)
-  left  = left - write*(10**expo)
-
-  if write > 0
-    hundreds  = englishNumber write
-    numString = numString + hundreds + illions[expo]
-
-    if left > 0
-      numString = numString + ' '
+    if expo > 3
+      expo -= 3
+    else
+      expo -= 1
     end
   end
 
