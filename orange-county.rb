@@ -9,14 +9,14 @@ class OrangeTree
   	@commands = { "help"    => ["help",          "    : Shows this list"],
   	              "q"       => ["q",             "       : Quit"],
   	              "pick"    => ["pickAnOrange",  "    : Pick an orange."],
-  	              "harvest" => ["harvest",       " : Harvest all oranges, and put them in stock"],
-  	              "count"   => ["countOranges",  "   : Shows how many oranges are left on the tree"],
-  	              "stock"   => ["countStock",    "   : Shows how many oranges are left in stock"],
-  	              "next"    => ["oneYearPasses", "    : Moves on to the next year"],
-  	              "party"   => ["party",         "   : Throw a 'Orange Party'"],
-  		          "eat"     => ["eat",           "     : Eat oranges"]	}
+  	              "harvest" => ["harvest",       " : Harvest all oranges, and put them in stock."],
+  	              "count"   => ["countOranges",  "   : Shows how many oranges are left on the tree."],
+  	              "stock"   => ["countStock",    "   : Shows how many oranges are left in stock."],
+  	              "next"    => ["oneYearPasses", "    : Moves on to the next year."],
+  	              "party"   => ["party",         "   : Throw a 'Orange Party'."],
+  		            "eat"     => ["eat",           "     : Eat oranges."]	}
   	puts "You have planted an orange tree. It can get up to #{@maxHeight} centimetres high! Let\'s see how it goes."
-  	puts "Use the .play method to, uh well, play ;-)"
+  	puts "Use the .play method to, uh well, play ;-)."
 
   end
 
@@ -62,14 +62,14 @@ class OrangeTree
       	puts "You should have harvested last year. This year it will produce less than normal."
       	@lessOranges = rand(100)
       end
-      if @lessOranges > @oranges
+      if @lessOranges > @oranges  #this has to change, now every year after harvest 0 production
         @producedOranges = 0
       else
       	@producedOranges = rand(300) - @lessOranges + rand(150)
       end
-      @oranges += @producedOranges
+      @oranges = @producedOranges
       if @oranges == 0
-      	puts "No oranges this year, to bad."
+      	puts "No oranges this year, too bad."
       else
       	puts "Your tree has produced #{plural(@oranges)} this year. Awesome!"
       end
@@ -132,7 +132,7 @@ class OrangeTree
   	else
   	  @stock += @oranges
   	  @oranges = 0
-  	  puts "All oranges are harvested. You now have #{plural(@stock)} in stock"
+  	  puts "All oranges are harvested. You now have #{plural(@stock)} in stock."
 
   	end
   end
